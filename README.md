@@ -87,6 +87,29 @@ Before installing any AI coding tool, make sure you have the basics covered:
 - [Getting Started](tools/opencode/getting-started.md) - First steps and workflows
 - [Tips & Tricks](tools/opencode/tips.md) - Advanced features
 
+### Advanced Guides
+
+Deep dives into extending and customizing your AI coding tools:
+
+#### Claude Code Skills, Hooks & Plugins
+
+- [Extension System Overview](advanced/claude-code-skills/README.md) - Skills, hooks, plugins, subagents
+- [Skills Guide](advanced/claude-code-skills/skills-guide.md) - Finding, adding, and developing custom skills
+- [Hooks Guide](advanced/claude-code-skills/hooks-guide.md) - Lifecycle hooks for automation
+- [Plugins Guide](advanced/claude-code-skills/plugins-guide.md) - Plugin marketplace and development
+
+#### OpenCode Plugins
+
+- [Plugin Ecosystem Overview](advanced/opencode-plugins/README.md) - Architecture and top picks
+- [Plugins Directory](advanced/opencode-plugins/plugins-guide.md) - 60+ categorized plugins with install guides
+- [Oh My OpenCode](advanced/opencode-plugins/oh-my-opencode.md) - The batteries-included orchestration layer
+
+#### MCP Ecosystem
+
+- [MCP Overview](advanced/mcp-ecosystem/README.md) - Model Context Protocol explained
+- [Popular Servers](advanced/mcp-ecosystem/popular-servers.md) - Top MCP servers ranked by category and stars
+- [Setup Guide](advanced/mcp-ecosystem/setup-guide.md) - Configure MCP for Claude Code and OpenCode
+
 ### Shell Aliases
 
 Pre-built aliases and functions to speed up your AI coding workflow:
@@ -256,6 +279,28 @@ git clone https://github.com/SwiggitySwerve/ai-dev-toolkit-setup.git
 cd ai-dev-toolkit-setup; .\aliases\powershell\install.ps1
 ```
 
+### Extending with Skills and Plugins
+
+**Claude Code Skills** (custom slash commands):
+- Create `.claude/skills/<name>/SKILL.md` files with YAML frontmatter
+- Skills follow the cross-platform [Agent Skills Standard](https://agentskills.io/specification)
+- Browse/install plugins: run `/plugin` inside Claude Code
+- Install from marketplace: `/plugin install plugin-name@claude-plugins-official`
+- Official plugins repo: https://github.com/anthropics/claude-plugins-official
+- Full guide: [advanced/claude-code-skills/](advanced/claude-code-skills/)
+
+**OpenCode Plugins** (npm-based extensions):
+- 60+ community plugins for auth, memory, orchestration, safety, and more
+- Install Oh My OpenCode for batteries-included setup: `bunx oh-my-opencode install`
+- Browse: https://github.com/awesome-opencode/awesome-opencode
+- Full guide: [advanced/opencode-plugins/](advanced/opencode-plugins/)
+
+**MCP Servers** (works with both tools):
+- Add to Claude Code: `claude mcp add <name> -- npx -y @server/package`
+- Add to OpenCode: configure in `opencode.json` under `mcpServers`
+- Essential servers: Context7, GitHub, Playwright, Memory, Sequential Thinking
+- Full guide with configs: [advanced/mcp-ecosystem/](advanced/mcp-ecosystem/)
+
 <!-- END LLM INSTRUCTIONS -->
 
 </details>
@@ -269,9 +314,15 @@ cd ai-dev-toolkit-setup; .\aliases\powershell\install.ps1
 | Resource | Description |
 |----------|-------------|
 | [Claude Code Official Docs](https://docs.anthropic.com/en/docs/claude-code) | Anthropic's official documentation |
+| [Skills Documentation](https://code.claude.com/docs/en/skills) | Official skills/slash commands guide |
+| [Plugin Marketplace](https://github.com/anthropics/claude-plugins-official) | Official plugin repository |
+| [Hooks Guide](https://code.claude.com/docs/en/hooks-guide) | Lifecycle hooks for automation |
 | [MCP Servers](https://github.com/modelcontextprotocol/servers) | Model Context Protocol servers for extended capabilities |
 | [Claude Code GitHub Action](https://github.com/anthropics/claude-code-action) | CI/CD integration for automated code review |
 | [CLAUDE.md Guide](https://docs.anthropic.com/en/docs/claude-code/memory) | Best practices for project-level instructions |
+| [Agent Skills Standard](https://agentskills.io/specification) | Cross-platform skill format specification |
+| [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | Community curated skills, hooks, and plugins |
+| [Building Skills PDF](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf) | Complete guide to building skills |
 
 ### OpenCode Ecosystem
 
@@ -279,14 +330,36 @@ cd ai-dev-toolkit-setup; .\aliases\powershell\install.ps1
 |----------|-------------|
 | [OpenCode GitHub](https://github.com/opencode-ai/opencode) | Source code and issue tracker |
 | [OpenCode Docs](https://opencode.ai) | Official documentation |
+| [Oh My OpenCode](https://github.com/code-yeongyu/oh-my-opencode) | Batteries-included orchestration layer with agents, hooks, MCPs |
+| [Oh My OpenCode (Slim)](https://github.com/alvinunreal/oh-my-opencode-slim) | Lightweight version with reduced token usage |
+| [awesome-opencode](https://github.com/awesome-opencode/awesome-opencode) | Curated list of plugins, themes, agents, and resources |
+| [OpenCode Plugin Docs](https://opencode.ai/docs/plugins/) | Official plugin development documentation |
+| [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) | Neovim integration |
 | [Ollama](https://ollama.ai) | Run local models with OpenCode |
+| [Plugin Template](https://github.com/zenobi-us/opencode-plugin-template) | Starter template with CICD for plugin development |
+
+### MCP Ecosystem
+
+| Resource | Description |
+|----------|-------------|
+| [Model Context Protocol](https://modelcontextprotocol.io) | Official MCP specification and docs |
+| [Official MCP Registry](https://registry.modelcontextprotocol.io) | Centralized server registry |
+| [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) | 75k+ stars - largest curated MCP server list |
+| [Context7](https://github.com/upstash/context7) | ~45k stars - live documentation fetching |
+| [GitHub MCP Server](https://github.com/github/github-mcp-server) | ~27k stars - official GitHub integration |
+| [Playwright MCP](https://github.com/microsoft/playwright-mcp) | ~27k stars - Microsoft browser automation |
+| [Claude Task Master](https://github.com/eyaltoledano/claude-task-master) | ~25k stars - AI task management |
+| [Serena](https://github.com/oraios/serena) | ~20k stars - LSP-based coding agent toolkit |
+| [Smithery.ai](https://smithery.ai) | One-click MCP server installation hub |
+| [MCP Market](https://mcpmarket.com) | Top 100 MCP servers leaderboard |
 
 ### General AI Coding Resources
 
 | Resource | Description |
 |----------|-------------|
-| [Model Context Protocol](https://modelcontextprotocol.io) | Open standard for AI tool integration |
+| [awesome-cli-agents](https://github.com/phamquiluan/awesome-cli-agents) | Curated list of CLI AI tools for Vim, Neovim, and Terminal |
 | [Awesome AI Coding](https://github.com/stoerr/awesome-ai-coding) | Curated list of AI coding tools |
+| [Agent Skills Standard](https://agentskills.io) | Cross-platform skill format (Claude Code, Codex, Copilot, Cursor) |
 
 ---
 
